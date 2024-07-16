@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Colors Example</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 20px;
+    }
+    .random-color {
+        padding: 10px;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+<script>
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var paragraphs = document.querySelectorAll('.random-color');
+    paragraphs.forEach(function(p) {
+        p.style.backgroundColor = getRandomColor();
+    });
+});
+</script>
+
+<div class="random-color">Paragraph 1</div>
+<div class="random-color">Paragraph 2</div>
+<div class="random-color">Paragraph 3</div>
+<div class="random-color">Paragraph 4</div>
+<div class="random-color">Paragraph 5</div>
+</body>
+</html>
