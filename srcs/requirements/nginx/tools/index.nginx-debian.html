@@ -1,47 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Random Colors Example</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        margin: 20px;
-    }
-    .random-color {
-        padding: 10px;
-        border-radius: 5px;
-        color: white;
-        font-weight: bold;
-        text-align: center;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel Inspired Page</title>
+    <style>
+        body {
+            background: url('https://images.unsplash.com/photo-1588527507643-b390ddfff7ed') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 50px;
+            color: #ff0000;
+            text-shadow: 2px 2px #000000;
+            margin-bottom: 20px;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #050000, 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000, 0 0 60px #ff0000, 0 0 70px #ff0000;
+            }
+            to {
+                text-shadow: 0 0 20px #ebc610, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000, 0 0 60px #ff0000, 0 0 70px #ff0000, 0 0 80px #ff0000;
+            }
+        }
+
+        p {
+            font-size: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .heroes {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .hero {
+            position: relative;
+            width: 200px;
+            transition: transform 0.3s;
+        }
+
+        .hero img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .hero:hover {
+            transform: scale(1.1);
+        }
+
+        .hero h3 {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px;
+            border-radius: 5px;
+            width: 90%;
+        }
+    </style>
 </head>
 <body>
-<script>
-function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    var paragraphs = document.querySelectorAll('.random-color');
-    paragraphs.forEach(function(p) {
-        p.style.backgroundColor = getRandomColor();
-    });
-});
-</script>
-
-<div class="random-color">Paragraph 1</div>
-<div class="random-color">Paragraph 2</div>
-<div class="random-color">Paragraph 3</div>
-<div class="random-color">Paragraph 4</div>
-<div class="random-color">Paragraph 5</div>
+    <h1>Welcome to the Marvel Universe!</h1>
+    <p>Discover the world of superheroes and their incredible adventures.</p>
+    <div class="heroes">
+        <div class="hero">
+            <img src="https://via.placeholder.com/200x300?text=Iron+Man" alt="Iron Man">
+            <h3>Iron Man</h3>
+        </div>
+        <div class="hero">
+            <img src="https://via.placeholder.com/200x300?text=Captain+America" alt="Captain America">
+            <h3>Captain America</h3>
+        </div>
+        <div class="hero">
+            <img src="https://via.placeholder.com/200x300?text=Thor" alt="Thor">
+            <h3>Thor</h3>
+        </div>
+        <div class="hero">
+            <img src="https://via.placeholder.com/200x300?text=Black+Widow" alt="Black Widow">
+            <h3>Black Widow</h3>
+        </div>
+    </div>
 </body>
 </html>
