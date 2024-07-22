@@ -1,4 +1,17 @@
-services:
+services: 
+  nginx:
+    container_name: nginx
+    build:
+      context: requirements/nginx
+    ports:
+      - "443:443"
+    expose: 
+      - 443
+    networks:
+      - nginx-nt
+    volumes:
+      - nginx-st:/var/lib/nginx:rw
+
   mariadb:
     container_name: mariadb
     build: 
@@ -11,19 +24,30 @@ services:
     expose:
       - 3306
     networks:
-      - abenmousa-wifi
+      - mariadb-nt
     volumes:
-      - mariadb-storage:/var/lib/mysql:rw
+      - mariadb-st:/var/lib/mysql:rw
 
 
-networks:
-  abenmousa-wifi:
+networks:  
+  nginx-nt:
+    driver: bridge
+  mariadb-nt:
     driver: bridge
 
+  
+
 volumes:
-  mariadb-storage:
+  nginx-st:
+    driver_opts:
+      type: none
+      device: /home/abenmous/Data/nginx
+      o: bind
+  mariadb-st:
     driver_opts:
       type: none
       device: /home/abenmous/Data/mariadb
       o: bind
+  
 
+  

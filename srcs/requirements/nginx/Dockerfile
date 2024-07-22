@@ -8,7 +8,7 @@ RUN cd /etc/nginx && openssl genpkey -algorithm RSA -out abenmous.key
 
 RUN cd /etc/nginx && openssl req -x509 -new -key abenmous.key -sha256 -days 365 -out abenmous.crt -subj "/C=MA/ST=Morocco/L=Tetouan/O=My Company/OU=IT/CN=www.aa.com/emailAddress=abenmous@example.com"
 
-COPY /tools/nginx.conf  /etc/nginx/conf.d/
+COPY /conf/nginx.conf  /etc/nginx/conf.d/
 
 COPY /tools/index.nginx-debian.html /var/www/html/index.nginx-debian.html
 
