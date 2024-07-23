@@ -10,7 +10,7 @@ RUN cd /etc/nginx && openssl req -x509 -new -key abenmous.key -sha256 -days 365 
 
 COPY /conf/nginx.conf  /etc/nginx/conf.d/
 
-COPY /tools/index.nginx-debian.html /var/www/html/index.nginx-debian.html
+# COPY /tools/index.nginx-debian.html /var/www/html/index.nginx-debian.html
 
 EXPOSE 443
 
