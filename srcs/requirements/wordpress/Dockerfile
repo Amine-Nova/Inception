@@ -13,3 +13,4 @@ RUN chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
 COPY wpscript.sh .
 
 CMD [ "sh" , "./wpscript.sh" ]
+

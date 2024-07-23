@@ -39,6 +39,7 @@ services:
       - inception
     volumes:
       - wordpress:/var/www/html/
+    
 
 networks:  
   inception:
