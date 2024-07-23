@@ -11,6 +11,8 @@ services:
       - inception
     volumes:
       -  wordpress:/var/www/html/
+    depends_on:
+      - wordpress
 
   mariadb:
     image: mariadb
@@ -39,6 +41,8 @@ services:
       - inception
     volumes:
       - wordpress:/var/www/html/
+    depends_on:
+      - mariadb
     
 
 networks:  
@@ -51,12 +55,12 @@ volumes:
   wordpress:
     driver_opts:
       type: none
-      device: ~/Data/wordpress
+      device: /home/abenmous/Data/wordpress
       o: bind
   mariadb:
     driver_opts:
       type: none
-      device: ~/Data/mariadb
+      device: /home/abenmous/Data/mariadb
       o: bind
   
 
