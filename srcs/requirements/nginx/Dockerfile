@@ -10,9 +10,10 @@ RUN cd /etc/nginx && openssl req -x509 -new -key abenmous.key -sha256 -days 365 
 
 COPY /conf/nginx.conf  /etc/nginx/conf.d/
 
-# COPY /tools/index.nginx-debian.html /var/www/html/index.nginx-debian.html
+COPY /tools/ng_script.sh .
 
 EXPOSE 443
 
+ENTRYPOINT ["bash", "./ng_script.sh"]
 
 CMD ["nginx", "-g", "daemon off;"]
