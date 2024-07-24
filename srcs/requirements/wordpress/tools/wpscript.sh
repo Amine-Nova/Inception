@@ -5,6 +5,6 @@ wp core download --allow-root
 wp config create --dbname=$DB_NAME --dbuser=$DB_USER --dbpass=$DB_USER_PASSWORD --dbhost=mariadb:3306 --allow-root --skip-check
 wp user create amine bmamine52@gmail.com --role=author --user_pass="1234" --allow-root #change with .env
 wp core install --url=https://abenmous.42.fr --title="abenmous" --admin_user=abenmous --admin_password="123" --admin_email=bmamine6@gmail.com --allow-root
-chmod -R 755 ./wp-content
+chmod -R 777 ./wp-content
 
 exec $@
