@@ -6,11 +6,11 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 
 RUN mkdir -p /var/www/html
 
-
 RUN chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
 
+COPY tools/wpscript.sh . 
 
-COPY wpscript.sh .
+ENTRYPOINT [ "sh" , "./wpscript.sh" ]
 
-CMD [ "sh" , "./wpscript.sh" ]
+CMD [ "php-fpm8.2", "-F" ]
 
