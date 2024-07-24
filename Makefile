@@ -4,7 +4,7 @@ DOCKER  = docker
 
 COMPOSE = docker-compose -f $(DIR-FILE)
 
-all: 
+all: up-build
 
 up:
 	$(COMPOSE) up
@@ -18,7 +18,7 @@ build:
 up-build:
 	$(COMPOSE) up --build
 
-prune:
+fclean:
 	$(DOCKER) system prune -af
 
-re:	down up-build
+re:	down fclean up-build
